@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NACF — Niger Anonymous Cyber Force</title>
+<style>
+  :root {
+    --red: #e8171b;
+    --orange: #ff6d00;
+    --green: #00ff41;
+    --bg: #050505;
+    --card: #0d0d0d;
+    --border: #1a1a1a;
+    --text: #c8c8c8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Courier New',monospace; overflow-x:hidden; }
+
+  /* NAV */
+  nav { display:flex; justify-content:space-between; align-items:center; padding:15px 40px; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(5,5,5,0.95); backdrop-filter:blur(10px); z-index:100; }
+  .logo { font-size:1.4em; font-weight:bold; color:var(--red); letter-spacing:3px; text-shadow:0 0 20px var(--red); }
+  .nav-links a { color:var(--text); text-decoration:none; margin-left:25px; font-size:0.9em; letter-spacing:1px; transition:color 0.3s; }
+  .nav-links a:hover { color:var(--red); }
+
+  /* HERO */
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; position:relative; }
+  .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(232,23,27,0.08) 0%, transparent 70%); }
+  .flag-bar { display:flex; gap:0; margin-bottom:30px; border-radius:4px; overflow:hidden; box-shadow:0 0 30px rgba(232,23,27,0.3); }
+  .flag-bar div { width:60px; height:8px; }
+  .flag-orange { background:#e8571b; }
+  .flag-white { background:#ffffff; }
+  .flag-green { background:#009a44; }
+  .hero-badge { font-size:0.75em; letter-spacing:6px; color:var(--red); margin-bottom:15px; text-transform:uppercase; }
+  .hero h1 { font-size:clamp(2em,6vw,4em); font-weight:bold; color:#fff; line-height:1.1; margin-bottom:10px; }
+  .hero h1 span { color:var(--red); text-shadow:0 0 30px var(--red); }
+  .hero-sub { font-size:clamp(0.9em,2vw,1.1em); color:#666; margin:20px 0 40px; max-width:600px; line-height:1.7; }
+  .terminal { background:#0a0a0a; border:1px solid #222; border-radius:8px; padding:20px 30px; text-align:left; max-width:550px; width:100%; margin-bottom:40px; }
+  .terminal-bar { display:flex; gap:8px; margin-bottom:15px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .dot-red { background:#ff5f57; } .dot-yellow { background:#febc2e; } .dot-green { background:#28c840; }
+  .terminal-line { font-size:0.85em; margin:4px 0; }
+  .terminal-line .prompt { color:var(--red); } .terminal-line .cmd { color:#fff; } .terminal-line .out { color:var(--green); }
+  .cta-group { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
+  .btn { padding:12px 30px; border-radius:4px; text-decoration:none; font-family:'Courier New',monospace; font-size:0.9em; letter-spacing:2px; cursor:pointer; border:none; transition:all 0.3s; }
+  .btn-red { background:var(--red); color:#fff; } .btn-red:hover { box-shadow:0 0 20px var(--red); transform:translateY(-2px); }
+  .btn-outline { background:transparent; color:var(--red); border:1px solid var(--red); } .btn-outline:hover { background:rgba(232,23,27,0.1); }
+
+  /* SECTIONS */
+  section { padding:80px 40px; max-width:1100px; margin:0 auto; }
+  .section-title { font-size:1.5em; color:var(--red); letter-spacing:3px; margin-bottom:10px; }
+  .section-line { width:60px; height:2px; background:var(--red); margin-bottom:40px; }
+
+  /* STATS */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-bottom:60px; }
+  .stat-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:25px; text-align:center; }
+  .stat-number { font-size:2.5em; font-weight:bold; color:var(--red); text-shadow:0 0 15px var(--red); }
+  .stat-label { font-size:0.8em; color:#555; letter-spacing:2px; margin-top:5px; }
+
+  /* CARDS */
+  .grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:25px; transition:border-color 0.3s; }
+  .card:hover { border-color:var(--red); }
+  .card-icon { font-size:2em; margin-bottom:15px; }
+  .card h3 { color:#fff; margin-bottom:10px; letter-spacing:1px; }
+  .card p { color:#555; font-size:0.9em; line-height:1.6; }
+
+  /* FOOTER */
+  footer { text-align:center; padding:40px; border-top:1px solid var(--border); color:#333; font-size:0.85em; }
+  footer span { color:var(--red); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">N.A.C.F</div>
+  <div class="nav-links">
+    <a href="#mission">Mission</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="flag-bar">
+    <div class="flag-orange"></div>
+    <div class="flag-white"></div>
+    <div class="flag-green"></div>
+  </div>
+  <div class="hero-badge">// Niger Anonymous Cyber Force //</div>
+  <h1>Protéger le<br><span>Cyberespace</span><br>Nigérien</h1>
+  <p class="hero-sub">Communauté de cybersécurité dédiée à la souveraineté numérique du Niger et de l'Afrique francophone.</p>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div>
+    </div>
+    <div class="terminal-line"><span class="prompt">nacf@niger:~$ </span><span class="cmd">./mission.sh</span></div>
+    <div class="terminal-line"><span class="out">[+] Sensibilisation cyber : ACTIVE</span></div>
+    <div class="terminal-line"><span class="out">[+] Formation francophone : ACTIVE</span></div>
+    <div class="terminal-line"><span class="out">[+] Souveraineté numérique : EN COURS</span></div>
+    <div class="terminal-line"><span class="prompt">nacf@niger:~$ </span><span class="cmd">_</span></div>
+  </div>
+  <div class="cta-group">
+    <a href="#mission" class="btn btn-red">Notre Mission</a>
+    <a href="#contact" class="btn btn-outline">Nous rejoindre</a>
+  </div>
+</div>
+
+<section id="mission">
+  <div class="section-title">// MISSION</div>
+  <div class="section-line"></div>
+  <div class="stats">
+    <div class="stat-card"><div class="stat-number">🇳🇪</div><div class="stat-label">NIGER FIRST</div></div>
+    <div class="stat-card"><div class="stat-number">🌍</div><div class="stat-label">AFRIQUE FRANCOPHONE</div></div>
+    <div class="stat-card"><div class="stat-number">🛡️</div><div class="stat-label">CYBER DEFENSE</div></div>
+    <div class="stat-card"><div class="stat-number">📱</div><div class="stat-label">SENSIBILISATION</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">// SERVICES</div>
+  <div class="section-line"></div>
+  <div class="grid-3">
+    <div class="card"><div class="card-icon">🔍</div><h3>Audit & Pentest</h3><p>Tests d'intrusion et audits de sécurité pour les organisations nigériennes.</p></div>
+    <div class="card"><div class="card-icon">🎓</div><h3>Formation</h3><p>Contenu éducatif en français pour former la prochaine génération cyber d'Afrique.</p></div>
+    <div class="card"><div class="card-icon">🚨</div><h3>Incident Response</h3><p>Aide à la réponse aux incidents de sécurité pour les institutions publiques.</p></div>
+    <div class="card"><div class="card-icon">🌐</div><h3>Sensibilisation</h3><p>Campagnes de sensibilisation sur les bonnes pratiques numériques.</p></div>
+    <div class="card"><div class="card-icon">🔒</div><h3>Hardening</h3><p>Durcissement des systèmes et infrastructures des organisations.</p></div>
+    <div class="card"><div class="card-icon">📊</div><h3>Veille Cyber</h3><p>Suivi des menaces et vulnérabilités ciblant l'Afrique francophone.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">// CONTACT</div>
+  <div class="section-line"></div>
+  <p style="color:#555; line-height:1.8;">
+    Vous voulez rejoindre la communauté NACF ou collaborer ?<br>
+    Contactez-nous sur GitHub : <a href="https://github.com/ibramoha2" style="color:var(--red);">@ibramoha2</a>
+  </p>
+</section>
+
+<footer>
+  <p>© 2024 <span>NACF</span> — Niger Anonymous Cyber Force | Fondé par <span>Mohamed Adoungouss Ibrahim</span></p>
+  <p style="margin-top:8px;">🇳🇪 Niamey, Niger — Pour la souveraineté numérique africaine</p>
+</footer>
+
+</body>
+</html>
