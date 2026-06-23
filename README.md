@@ -1,16 +1,28 @@
-# 🔴 NACF — Niger Anonymous Cyber Force
+# NACF - Niger Africa Cyber Forum
 
-> Plateforme communautaire cybersécurité pour le Niger et l'Afrique francophone
+> Plateforme communautaire cybersecurite pour l Afrique francophone.
 
-## 🌍 Mission
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3)
+![Author](https://img.shields.io/badge/Author-ibramoha2-CC0000?style=flat-square)
 
-Promouvoir la souveraineté numérique du Niger et former la prochaine génération de professionnels cybersécurité francophones.
+## Vision
 
-## 🔧 Stack
-- HTML5, CSS3 (dark cyber theme)
-- Niger flag colors (#E8571B, #FFFFFF, #009A44)
+NACF est une initiative visant a creer une communaute de professionnels et etudiants
+en cybersecurite dans les pays francophones d Afrique.
 
-## 👤 Fondateur
-**Mohamed Adoungouss Ibrahim** | DUT Cybersécurité | Niamey, Niger 🇳🇪
+## Fonctionnalites prevues
+- Forum de discussion cybersecurite en francais
+- Partage de ressources et writeups CTF
+- Annuaire de professionnels africains de la cyber
+- Calendrier des evenements cyber en Afrique
+- Espace recrutement / stages
 
-[GitHub](https://github.com/ibramoha2)
+## Contribuer
+```bash
+git clone https://github.com/ibramoha2/NACF
+cd NACF
+# Ouvrir index.html dans votre navigateur
+```
+
+**Auteur :** [@ibramoha2](https://github.com/ibramoha2) | Niamey, Niger
